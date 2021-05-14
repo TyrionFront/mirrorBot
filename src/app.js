@@ -29,11 +29,12 @@ export default (url) => {
 
   bot.on('message', (msg) => {
     const { chat: { id }, text = '' } = msg;
-    const [command, ...rest] = text.split(' ');
-    if (!command || command === '/pin_msg') {
+    const [part, ...rest] = text.split(' ');
+    if (!part || part === '/pin_msg') {
       return;
     }
-    const responseText = commandsAndResponses[command](rest.join(' '));
+    const currentCommand = commandsAndResponses[part];
+    const responseText = currentCommand ? commandsAndResponses[part](rest.join(' ')) : part;
     bot.sendMessage(id, responseText);
   });
 
