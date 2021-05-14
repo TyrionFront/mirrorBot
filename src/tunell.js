@@ -6,7 +6,7 @@ import 'regenerator-runtime';
 
 const launch = async () => {
   dotenv.config();
-  const addr = process.env.PORT;
+  const addr = process.env.PORT || 8000;
   process.env.BOT_URL = await ngrok.connect({ addr });
   const url = process.env.BOT_URL;
 
