@@ -1,9 +1,9 @@
 /* eslint-disable camelcase */
-import express from 'express';
-import TelegramBot from 'node-telegram-bot-api';
+const express = require('express');
+const TelegramBot = require('node-telegram-bot-api');
 
 
-export default (url) => {
+function botApp(url) {
   const bot = new TelegramBot(process.env.BOT_TOKEN);
   bot.setWebHook(`${url}/bot`);
 
@@ -49,4 +49,6 @@ export default (url) => {
   });
 
   return app;
-};
+}
+
+module.exports = { botApp };

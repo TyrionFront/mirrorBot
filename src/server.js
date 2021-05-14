@@ -1,6 +1,5 @@
-import dotenv from 'dotenv';
-import botApp from './app';
-import 'regenerator-runtime';
+const dotenv = require('dotenv');
+const { botApp } = require('./app');
 
 try {
   dotenv.config();

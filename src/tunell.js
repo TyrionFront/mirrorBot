@@ -12,7 +12,7 @@ const launch = async () => {
 
   nodemon({
     script: 'src/server.js',
-    exec: `NGROK_URL=${url} babel-node --presets @babel/preset-env`,
+    exec: `NGROK_URL=${url} node`,
   }).on('start', () => {
     console.log(`The tunnel has started and working on ${url}`);
   }).on('quit', () => {
