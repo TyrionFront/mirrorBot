@@ -1,5 +1,5 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import ngrok from 'ngrok';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import nodemon from 'nodemon';
 import dotenv from 'dotenv';
 import 'regenerator-runtime';
