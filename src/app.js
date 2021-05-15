@@ -33,8 +33,13 @@ function botApp(url) {
     if (!part || part === '/pin_msg') {
       return;
     }
+    if (!part.startsWith('/')) {
+      bot.sendMessage(id, text);
+      return;
+    }
     const currentCommand = commandsAndResponses[part];
-    const responseText = currentCommand ? commandsAndResponses[part](rest.join(' ')) : part;
+    const responseText = currentCommand
+      ? commandsAndResponses[part](rest.join(' ')) : `No command "${part}" was recognized`;
     bot.sendMessage(id, responseText);
   });
 
