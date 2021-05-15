@@ -43,6 +43,11 @@ function botApp(url) {
     bot.sendMessage(id, responseText);
   });
 
+  bot.on('animation', (anima) => {
+    const { chat: { id }, animation: { file_id } } = anima;
+    bot.sendAnimation(id, file_id);
+  });
+
   bot.onText(/\/pin_msg (.+)/, (msg) => {
     const { chat: { id }, message_id } = msg;
     bot.pinChatMessage(id, message_id);
